@@ -28,7 +28,7 @@
             <field name="name">crm.intervention.timesheet.form</field>
             <field name="model">crm.intervention</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="crm.crm_case_form_view_intervention"/>
+            <field name="inherit_id" ref="crm_intervention.crm_case_form_view_intervention"/>
             <field name="arch" type="xml">
                 <xpath expr="/form/notebook" position="inside">
                     <page string="Timesheet">
