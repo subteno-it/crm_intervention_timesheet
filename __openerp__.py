@@ -38,8 +38,7 @@
         'crm_intervention',
         'crm_timesheet',
     ],
-    'init_xml': [],
-    'update_xml': [
+    'data': [
         'crm_intervention_view.xml',
     ],
     'demo_xml': [],

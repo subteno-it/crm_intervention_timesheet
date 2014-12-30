@@ -30,31 +30,14 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="crm_intervention.crm_case_form_view_intervention"/>
             <field name="arch" type="xml">
-                <xpath expr="/form/notebook" position="inside">
+                <xpath expr="/form/sheet/notebook" position="inside">
                     <page string="Timesheet">
-                        <field name="duration_timesheet" widget="float_time"/>
                         <field name="analytic_account_id" domain="[('type','=','normal'),('state','=','open')]"/>
                         <newline/>
-                        <field name="timesheet_ids" nolabel="1" mode="tree,form" colspan="4" context="{'default_analytic_account_id': analytic_account_id}">
-                            <tree string="Summary Work" editable="bottom">
-                                <field name="date"/>
-                                <field name="user_id"/>
-                                <field name="hours" widget="float_time"/>
-                                <field name="name"/>
-                                <field name="analytic_account_id"/>
-                            </tree>
-                            <form string="Summary Work">
-                                <field name="name" colspan="4"/>
-                                <field name="date"/>
-                                <field name="user_id"/>
-                                <field name="hours" widget="float_time"/>
-                                <field name="analytic_account_id"/>
-                            </form>
-                        </field>
+                        <field name="timesheet_ids" nolabel="1" mode="tree,form" colspan="4" context="{'default_account_id': analytic_account_id}"/>
                     </page>
                 </xpath>
             </field>
         </record>
-
     </data>
 </openerp>
