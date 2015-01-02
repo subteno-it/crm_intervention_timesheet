@@ -24,7 +24,7 @@
 
 {
     'name': 'CRM Intervention Timesheet',
-    'version': '0.1',
+    'version': '0.2',
     'category': 'Generic Modules/CRM & SRM',
     'description': """
         Add timesheet on CRM intervention (the same method as task's project),
