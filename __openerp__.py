@@ -36,7 +36,7 @@
     'website': 'http://www.Syleam.fr/',
     'depends': [
         'crm_intervention',
-        'crm_timesheet',
+        'hr_timesheet_sheet',
     ],
     'data': [
         'crm_intervention_view.xml',

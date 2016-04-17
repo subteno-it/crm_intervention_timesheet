@@ -22,46 +22,15 @@
 #
 ##############################################################################
 
-from openerp import models, api, fields
+from openerp import models, fields
 
 
 class crm_intervention(models.Model):
     _inherit = 'crm.intervention'
     _name = "crm.intervention"
 
-    analytic_account_id = fields.Many2one('account.analytic.account', 'Analytic Account', ondelete='cascade', default='get_default_analytic')
-    timesheet_ids = fields.One2many('hr.analytic.timesheet', 'intervention_id', 'Timesheet')
-
-    @api.one
-    def get_default_analytic(self):
-        """
-        Gives id of analytic for this case
-        """
-        return self.env['crm.analytic.timesheet.configuration'].search([('model', '=', self._name)]).analytic_account_id.id
-
-    def onchange_partner_intervention_id(self):
-        if not self.partner_id:
-            self.partner_invoice_id = False
-            self.partner_shipping_id = False
-            self.partner_order_id = False
-            self.email_from = False
-            self.partner_address_phone = False
-            self.partner_address_mobile = False
-            self.analytic_account_id = False
-
-        address_obj = self.pool.get('res.partner.address')
-        addr = self.partner_id.address_get(['default', 'delivery', 'invoice', 'contact'])
-
-        self.partner_invoice_id = addr['invoice']
-        self.partner_order_id = addr['contact']
-        self.partner_shipping_id = addr['delivery']
-        self.email_from = address_obj.browse(addr['delivery']).email
-        self.partner_address_phone = address_obj.browse(addr['delivery']).phone
-        self.partner_address_mobile = address_obj.browse(addr['delivery']).mobile
-
-        for timesheet in self.partner_id.crm_analytic_ids:
-            if timesheet.crm_model_id.model == self._name:
-                self.analytic_account_id = timesheet.analytic_account_id.id
+    analytic_account_id = fields.Many2one('account.analytic.account', 'Analytic Account', ondelete='cascade')
+    timesheet_ids = fields.One2many('account.analytic.line', 'intervention_id', 'Timesheet')
 
 crm_intervention()
 

@@ -25,8 +25,8 @@
 from openerp import models, fields
 
 
-class HrAnalyticTimesheet(models.Model):
-    _inherit = 'hr.analytic.timesheet'
+class AccountAnalyticLine(models.Model):
+    _inherit = 'account.analytic.line'
 
     intervention_id = fields.Many2one('crm.intervention', string='Intervention')
 
