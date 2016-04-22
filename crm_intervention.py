@@ -30,7 +30,7 @@ class crm_intervention(models.Model):
     _name = "crm.intervention"
 
     analytic_account_id = fields.Many2one('account.analytic.account', 'Analytic Account', ondelete='cascade')
-    timesheet_ids = fields.One2many('account.analytic.line', 'intervention_id', 'Timesheet')
+    timesheet_ids = fields.One2many('account.analytic.line', 'intervention_id', 'Timesheet', default=False)
 
 crm_intervention()
 
