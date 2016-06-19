@@ -45,3 +45,8 @@ msgstr "Compte analytique"
 msgid "Intervention"
 msgstr "Intervention"
 
+#. module: crm_intervention_timesheet
+#: view:crm.intervention:0
+msgid "Timesheet Activities"
+msgstr "Activités de la feuille de temps"
+
